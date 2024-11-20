@@ -52,5 +52,57 @@ export class HashMap {
             return false;
         }
     }
+
+    length(){
+        let count = 0;
+        for(let i = 0; i < this.capacity; i++){
+            if(this.buckets[i]){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    clear(){
+        for(let i = 0; i < this.capacity; i++){
+            if(this.buckets[i]){
+                this.buckets[i] = undefined;
+            }
+        }
+        
+    }
+
+    keys(){
+        let arr = [];
+        for(let i = 0; i < this.capacity; i++){
+            if(this.buckets[i]){
+                arr.push(i);
+            }
+        }
+        return arr;
+    }
+
+    values(){
+        let arr = [];
+        for(let i = 0; i < this.capacity; i++){
+            if(this.buckets[i]){
+                arr.push(this.buckets[i]);
+            }
+        }
+        return arr;
+    }
+
+    entries(){
+        let arr = [];
+        for(let i = 0; i < this.capacity; i++){
+            if(this.buckets[i]){
+                let tempArr = [];
+                tempArr.push(i);
+                tempArr.push(this.buckets[i]);
+                arr.push(tempArr);
+            }
+        }
+        return arr;
+    }
 }
 
