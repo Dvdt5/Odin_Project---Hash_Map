@@ -7,7 +7,7 @@ class Node {
 
 }
 
-export class LinkedList {
+export default class LinkedList {
 
     constructor() {
         this.LinkedListHead = null;
@@ -44,6 +44,8 @@ export class LinkedList {
         }
 
     }
+
+
 
     size(){
         let returnValue = 0;
@@ -106,7 +108,7 @@ export class LinkedList {
     contains(value){
         let currNode = this.LinkedListHead;
         while (currNode != null){
-            if (currNode.nodeName == value){
+            if (currNode.nodeName[0] == value){
                 return true;
             }
             currNode = currNode.nextNode;
@@ -119,7 +121,8 @@ export class LinkedList {
         let index = 0;
         let currNode = this.LinkedListHead;
         while (currNode != null){
-            if (currNode.nodeName == value){
+            if (currNode.nodeName[0] == value){
+                
                 return index;
             }
             index += 1;
@@ -172,6 +175,17 @@ export class LinkedList {
         }
     }
 
+    
+
+    toArray(){
+        let returnArr = [];
+        let currNode = this.LinkedListHead;
+        while (currNode != null){
+            returnArr.push(currNode.nodeName);
+            currNode = currNode.nextNode;
+        }
+        return returnArr;
+    }
 
     toString(){
         let returnString = ``;
@@ -182,4 +196,7 @@ export class LinkedList {
         }
         return `${returnString}null`;
     }
+
+    
+    
 }
